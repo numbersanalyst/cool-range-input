@@ -1,0 +1,15 @@
+:root {
+    color-scheme: light dark;
+
+    --black: #070709;
+    --white: #fff;
+    --yellow: #f6d653;
+
+    --fg: light-dark(var(--black), var(--white));
+    --bg: light-dark(var(--white), var(--black));
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--fg);
+}
