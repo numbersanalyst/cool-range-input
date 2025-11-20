@@ -13,5 +13,5 @@ range.addEventListener("input", (e) => {
 
 function update_progress(current_value) {
     let progress = current_value / input.max;
-    range_value.style.maskImage = `linear-gradient(to top, black 0 ${ 100 * progress - 6}%, transparent ${100 * progress - 8}%`
+    range_value.style.maskImage = `linear-gradient(to top, black ${Math.max(2, 100 * progress - 6)}%, transparent ${100 * progress - 6}%`
 }

@@ -1,69 +1,72 @@
 :root {
-    color-scheme: dark;
+  color-scheme: dark;
 
-    --black: #070709;
-    --white: #fff;
-    --yellow: #f6d653;
+  --black: #070709;
+  --white: #fff;
+  --yellow: #f6d653;
 
-    --lines: 5;
+  --lines: 5;
 
-    --fg: light-dark(var(--black), var(--white));
-    --bg: light-dark(var(--white), var(--black));
+  --fg: light-dark(var(--black), var(--white));
+  --bg: light-dark(var(--white), var(--black));
 }
 
 body {
-    background-color: var(--bg);
-    color: var(--fg);
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: monospace;
+  text-transform: uppercase;
 }
 
 input[type="range"] {
+  display: block;
+  appearance: none;
+  writing-mode: vertical-lr;
+  direction: rtl;
+  background-color: transparent;
+  margin: 0;
+  &::-webkit-slider-thumb {
     appearance: none;
-    writing-mode: vertical-lr;
-    direction: rtl;
-    background-color: transparent;
-    margin: 0;
-    &::-webkit-slider-thumb {
-        appearance: none;
-        background: linear-gradient(
-            to bottom,
-            var(--yellow) 0 calc(50% - 1px),
-            var(--black) calc(50% - 1px) calc(50% + 1px),
-            var(--yellow) calc(50% + 1px) 100%
-        );
-        border-radius: 2px;
-        width: 40px;
-        height: 15px;
-        scale: 1.4 1;
-    }
-    &::-webkit-slider-runnable-track {
-        background: repeating-linear-gradient(
-            to bottom,
-            #fff 0 2px,
-            transparent 2px calc((100% - 2px) / (var(--lines) - 1))
-        );
-    }
+    background: linear-gradient(
+      to bottom,
+      var(--yellow) 0 calc(50% - 1px),
+      var(--black) calc(50% - 1px) calc(50% + 1px),
+      var(--yellow) calc(50% + 1px) 100%
+    );
+    border-radius: 4px;
+    width: 40px;
+    height: 18px;
+    scale: 1.4 1;
+  }
+  &::-webkit-slider-runnable-track {
+    background: repeating-linear-gradient(
+      to bottom,
+      rgb(255, 255, 255, 0.3) 0 2px,
+      transparent 2px calc((100% - 2px) / (var(--lines) - 1))
+    );
+  }
 }
 
 .range {
-    text-align: center;
-    label {
-        display: block;
-    }
+  text-align: center;
+  label {
+    display: block;
+    margin-block-end: 1rem;
+  }
 }
 
 .range-wrapper {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .range-value {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    transform-origin: 50% 100%;
-    background: repeating-linear-gradient(
-        to bottom,
-        var(--yellow) 0 2px,
-        transparent 2px calc((100% - 2px) / (var(--lines) - 1))
-    );
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--yellow) 0 2px,
+    transparent 2px calc((100% - 2px) / (var(--lines) - 1))
+  );
 }
