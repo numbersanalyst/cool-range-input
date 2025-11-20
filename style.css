@@ -1,9 +1,11 @@
 :root {
-    color-scheme: light dark;
+    color-scheme: dark;
 
     --black: #070709;
     --white: #fff;
     --yellow: #f6d653;
+
+    --lines: 5;
 
     --fg: light-dark(var(--black), var(--white));
     --bg: light-dark(var(--white), var(--black));
@@ -12,4 +14,56 @@
 body {
     background-color: var(--bg);
     color: var(--fg);
+}
+
+input[type="range"] {
+    appearance: none;
+    writing-mode: vertical-lr;
+    direction: rtl;
+    background-color: transparent;
+    margin: 0;
+    &::-webkit-slider-thumb {
+        appearance: none;
+        background: linear-gradient(
+            to bottom,
+            var(--yellow) 0 calc(50% - 1px),
+            var(--black) calc(50% - 1px) calc(50% + 1px),
+            var(--yellow) calc(50% + 1px) 100%
+        );
+        border-radius: 2px;
+        width: 40px;
+        height: 15px;
+        scale: 1.4 1;
+    }
+    &::-webkit-slider-runnable-track {
+        background: repeating-linear-gradient(
+            to bottom,
+            #fff 0 2px,
+            transparent 2px calc((100% - 2px) / (var(--lines) - 1))
+        );
+    }
+}
+
+.range {
+    text-align: center;
+    label {
+        display: block;
+    }
+}
+
+.range-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.range-value {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    transform-origin: 50% 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        var(--yellow) 0 2px,
+        transparent 2px calc((100% - 2px) / (var(--lines) - 1))
+    );
 }
