@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
+
 :root {
   color-scheme: dark;
 
@@ -16,6 +18,12 @@ body {
   color: var(--fg);
   font-family: monospace;
   text-transform: uppercase;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
 }
 
 input[type="range"] {
@@ -37,6 +45,7 @@ input[type="range"] {
     width: 40px;
     height: 18px;
     scale: 1.4 1;
+    cursor: grab;
   }
   &::-webkit-slider-runnable-track {
     background: repeating-linear-gradient(
@@ -49,9 +58,19 @@ input[type="range"] {
 
 .range {
   text-align: center;
+  border: 1px solid #ebdb9b48;
+  border-radius: 6px;
+  color: var(--yellow);
+  font-family: Dosis;
+  font-size: large;
+  font-weight: 500;
+  display: inline-block;
+  padding: 1.6rem 0.8rem;
   label {
     display: block;
-    margin-block-end: 1rem;
+    margin-block-end: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid;
   }
 }
 
